@@ -4,15 +4,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Add comment to PR
-        uses: actions/github-script@v6
-        if: always()
+      - name: Add comment in PR
+        uses: mshick/add-pr-comment@v2
         with:
-          script: |
-            const body = "Thank you for your contribution! ❤️";
-            await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: body
-            })
+          message: |
+            Hi, please check the following link for more details (right-click and select "Open link in new tab" or use the appropriate keyboard shortcut to open in a new tab):
+            
+            [Dashboard]
